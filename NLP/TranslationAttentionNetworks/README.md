@@ -47,3 +47,4 @@ pip install -r requirements.txt
 ## License
 
 This project is licensed under the **MIT License**. See the LICENSE file for more information. Thank you for your interest in this project! We hope you find it useful for learning about machine translation and attention mechanisms in deep learning.
+
