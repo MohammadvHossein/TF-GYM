@@ -7,9 +7,19 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+Data
 pyenv
+fashionmnist
+sample
+best_model_Fashion_mnist.keras
+sample test image
+best_model_mnist.keras
+sample test image
+best_model_xray.keras
 Sample_process_image
 Frame Youtube
+khayyammolana
+khayyam.txt
 .Python
 build/
 develop-eggs/
