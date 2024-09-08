@@ -1,0 +1,5 @@
+1.JPG - option to choose but you know You YOU get the point anyway - Sentiment: neutral
+2.JPG - into college there was still not that much ml but these RL lectures - Sentiment: pos
+3.JPG - second graduate semester my second half| of my fourth year | started my work as - Sentiment: neg
+4.JPG - this robotics project and [ have to say working on it this semester - Sentiment: neutral
+5.JPG - science internship at Amazon that was my first real Tech interview it was really - Sentiment: pos
