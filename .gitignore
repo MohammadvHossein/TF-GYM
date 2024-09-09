@@ -11,6 +11,8 @@ Data
 pyenv
 fashionmnist
 sample
+model.txt
+best_model_cifar10.keras
 best_model_Fashion_mnist.keras
 sample test image
 best_model_mnist.keras
