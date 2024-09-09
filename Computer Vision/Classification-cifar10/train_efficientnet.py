@@ -83,4 +83,8 @@ plt.show()
 
 # Print test results
 test_loss = round(results[0], 2)
+<<<<<<< HEAD
 test_acc = round(results[1], 2)
+=======
+test_acc = round(results[1], 2)
+>>>>>>> 170436427a797e2c8c9e25a0f2c56f633b5883d5
