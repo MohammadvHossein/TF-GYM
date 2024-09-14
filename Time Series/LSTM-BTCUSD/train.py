@@ -37,16 +37,16 @@ X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
 X_test = X_test.reshape(X_test.shape[0], X_test.shape[1], 1)
 
 model = Sequential()
-model.add(LSTM(50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
+model.add(LSTM(150, return_sequences=True, input_shape=(X_train.shape[1], 1)))
 model.add(Dropout(0.2))
-model.add(LSTM(50, return_sequences=False))
+model.add(LSTM(75, return_sequences=False))
 model.add(Dropout(0.2))
 model.add(Dense(25))
 model.add(Dense(1))
 
 model.compile(optimizer='adam', loss='mean_squared_error')
 
-model.fit(X_train, y_train, batch_size=1, epochs=10)
+model.fit(X_train, y_train, batch_size=1, epochs=100)
 
 predictions = model.predict(X_test)
 predictions = scaler.inverse_transform(predictions)
