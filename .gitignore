@@ -8,6 +8,10 @@ __pycache__/
 
 # Distribution / packaging
 Data
+best_model_FackNews.keras
+tfidf_vectorizer.pkl
+Time Series/LSTM-BTCUSD/btc_price_prediction_model.h5
+datasets
 pyenv
 fashionmnist
 sample

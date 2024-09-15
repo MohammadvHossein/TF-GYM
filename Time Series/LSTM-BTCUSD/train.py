@@ -1,11 +1,14 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
-from keras.models import Sequential
-from keras.layers import LSTM, Dense, Dropout
-from sklearn.metrics import mean_squared_error
-import yfinance as yf
+import numpy as np # type: ignore
+import pandas as pd # type: ignore
+import matplotlib.pyplot as plt # type: ignore
+from sklearn.preprocessing import MinMaxScaler # type: ignore
+from tensorflow.keras.models import Sequential # type: ignore
+from tensorflow.keras.layers import LSTM, Dense, Dropout , Input # type: ignore
+from tensorflow.keras.optimizers import Adam # type: ignore
+from sklearn.metrics import mean_squared_error # type: ignore
+import yfinance as yf # type: ignore
+import warnings
+warnings.filterwarnings('ignore')
 
 ticker = yf.Ticker("BTC-USD")
 data = ticker.history(period="2y")
@@ -21,7 +24,7 @@ train_size = int(len(scaled_data) * 0.8)
 train_data = scaled_data[:train_size]
 test_data = scaled_data[train_size:]
 
-def create_dataset(dataset, look_back=1):
+def create_dataset(dataset, look_back=15):
     X, Y = [], []
     for i in range(len(dataset) - look_back - 1):
         a = dataset[i:(i + look_back), 0]
@@ -29,7 +32,7 @@ def create_dataset(dataset, look_back=1):
         Y.append(dataset[i + look_back, 0])
     return np.array(X), np.array(Y)
 
-look_back = 60
+look_back = 15
 X_train, y_train = create_dataset(train_data, look_back)
 X_test, y_test = create_dataset(test_data, look_back)
 
@@ -37,16 +40,19 @@ X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
 X_test = X_test.reshape(X_test.shape[0], X_test.shape[1], 1)
 
 model = Sequential()
-model.add(LSTM(150, return_sequences=True, input_shape=(X_train.shape[1], 1)))
+model.add(Input((X_train.shape[1], 1)))
+model.add(LSTM(150, return_sequences=True))
 model.add(Dropout(0.2))
 model.add(LSTM(75, return_sequences=False))
 model.add(Dropout(0.2))
 model.add(Dense(25))
 model.add(Dense(1))
 
-model.compile(optimizer='adam', loss='mean_squared_error')
+model.compile(optimizer=Adam(learning_rate= 0.0001), loss='mean_squared_error')
 
-model.fit(X_train, y_train, batch_size=1, epochs=100)
+model.fit(X_train, y_train, batch_size=64, epochs=100)
+
+model.save('btc_price_prediction_model.h5')
 
 predictions = model.predict(X_test)
 predictions = scaler.inverse_transform(predictions)
