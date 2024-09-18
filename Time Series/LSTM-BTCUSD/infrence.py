@@ -1,12 +1,12 @@
-import numpy as np # type: ignore
-import pandas as pd # type: ignore
-import matplotlib.pyplot as plt # type: ignore
-from sklearn.preprocessing import MinMaxScaler # type: ignore
-from tensorflow.keras.models import Sequential, load_model # type: ignore
-from tensorflow.keras.layers import LSTM, Dense, Dropout , Input # type: ignore
-from tensorflow.keras.optimizers import Adam # type: ignore
-from sklearn.metrics import mean_squared_error # type: ignore
-import yfinance as yf # type: ignore
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.models import Sequential, load_model
+from tensorflow.keras.layers import LSTM, Dense, Dropout , Input
+from tensorflow.keras.optimizers import Adam
+from sklearn.metrics import mean_squared_error
+import yfinance as yf
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -34,7 +34,6 @@ def create_dataset(dataset, look_back=15):
 
 look_back = 15
 X_train, y_train = create_dataset(train_data, look_back)
-
 X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
 
 model = Sequential()
