@@ -1,7 +1,9 @@
 ## TimeSeries-Prediction-LSTM-SineWave
+
 A deep learning model for predicting time series data using LSTM (Long Short-Term Memory) networks. The goal of this project is to leverage LSTM architecture to forecast values based on historical data.
 
 ### Table of Contents
+
 - [Introduction](#introduction)
 - [Project Structure](#project-structure)
 - [Model Architecture](#model-architecture)
@@ -10,12 +12,15 @@ A deep learning model for predicting time series data using LSTM (Long Short-Ter
 - [License](#license)
 
 ## Introduction
+
 This project aims to build a deep learning model for time series prediction using LSTM networks. The model is trained using the Keras library, and its performance is visualized through various plots, including the training history and prediction results.
 
 ### Metrics
+
 **Loss:** 0.0661 - **Val Loss:** 0.0153
 
 ## Project Structure
+
 The project consists of the following files and folders:
 
 - **best_model_sine.keras**: The checkpoint file containing the best model weights.
@@ -28,6 +33,7 @@ The project consists of the following files and folders:
 - **train.py**: The main file for training the model on the time series data.
 
 ## Model Architecture
+
 The model used in this project has a Sequential architecture and consists of the following layers:
 
 | Layer (type)               | Output Shape          | Param #   |
@@ -45,6 +51,7 @@ The model used in this project has a Sequential architecture and consists of the
 | **Non-trainable params:**  | **128 (512.00 B)**     |           |
 
 ## Installation
+
 To install the required packages, use the `requirements.txt` file. You can do this by running the following command:
 
 ```bash
@@ -52,9 +59,11 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+
 - **Train the model**: To train the model, run the `train.py` file.
 - **Test the model**: To test the model and make predictions, use the `inference.py` file. You can visualize the predictions using the provided images.
 - **View model performance**: To see the model's performance during training, check the `HistoryOfModel.png` image.
 
 ## License
+
 This project is licensed under the **MIT License**. See the LICENSE file for more information. Thank you for your interest in this project! We hope you find it useful for your time series prediction tasks.
