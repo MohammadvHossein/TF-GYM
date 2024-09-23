@@ -46,7 +46,7 @@ class MovieLensRankingModel(tf.keras.Model):
         self.user_vocab = user_vocab
         self.movie_vocab = movie_vocab
         self.user_embedding = tf.keras.layers.Embedding(
-            user_vocab.vocabulary_size(), 64)
+            user_vocab.vocabulary_size(), 128)
         self.movie_embedding = tf.keras.layers.Embedding(
             movie_vocab.vocabulary_size(), 64)
 
