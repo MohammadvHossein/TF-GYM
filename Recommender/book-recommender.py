@@ -3,6 +3,7 @@ import tensorflow_datasets as tfds
 import tensorflow as tf
 from typing import Dict, Tuple
 
+
 dataset_ratings = tfds.load('movielens/100k-ratings', split="train")
 dataset_movies = tfds.load('movielens/100k-movies', split="train")
 
