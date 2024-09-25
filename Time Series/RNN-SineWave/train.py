@@ -17,7 +17,7 @@ scaler = StandardScaler()
 data = scaler.fit_transform(data_main.reshape(-1, 1))  # Reshape to 2D array
 
 # Save the scaler using pickle
-with open('scaler.habibpour', 'wb') as scaler_file:
+with open('check-points/scaler.habibpour', 'wb') as scaler_file:
     pickle.dump(scaler, scaler_file)
 
 # Split the data into training and testing sets
@@ -71,7 +71,7 @@ model.compile(optimizer=Adam(learning_rate=0.0001), loss='mean_squared_error')
 model.summary()
 
 # Set up checkpoint to save the best model based on val_loss
-checkpoint = ModelCheckpoint('best_model_sine.keras', monitor='val_loss', save_best_only=True, mode='min')
+checkpoint = ModelCheckpoint('check-points/best_model_sine.keras', monitor='val_loss', save_best_only=True, mode='min')
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)  # Early stopping
 
 # Train the model

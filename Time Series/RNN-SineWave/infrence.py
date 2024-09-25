@@ -4,7 +4,7 @@ import pickle  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 
 # Load the scaler
-with open('scaler.habibpour', 'rb') as scaler_file:
+with open('check-points/scaler.habibpour', 'rb') as scaler_file:
     scaler = pickle.load(scaler_file)
 
 def prepare_data(data):
@@ -31,7 +31,7 @@ def predict(sequence):
     return prediction[0][0]
 
 # Load the trained model
-model = load_model('best_model_sine.keras')
+model = load_model('check-points/best_model_sine.keras')
 
 # Generate sine wave data for testing
 data = np.sin(0.01 * np.arange(3000))
