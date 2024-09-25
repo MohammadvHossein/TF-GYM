@@ -21,11 +21,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
-pickle.dump(scaler, open('StandardScaler.habibpour', 'wb'))
+pickle.dump(scaler, open('check_points/StandardScaler.habibpour', 'wb'))
 
 # Checkpoint Save
 checkpoint = ModelCheckpoint(
-    'best_model_iris.keras', monitor="val_loss", save_best_only=True, mode='min')
+    'check_points/best_model_iris.keras', monitor="val_loss", save_best_only=True, mode='min')
 
 # Modeling
 model = Sequential()
