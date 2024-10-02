@@ -3,7 +3,6 @@ import tensorflow_datasets as tfds
 import tensorflow as tf
 from typing import Dict, Tuple
 
-
 dataset_ratings = tfds.load('movielens/100k-ratings', split="train")
 dataset_movies = tfds.load('movielens/100k-movies', split="train")
 
@@ -46,7 +45,7 @@ class MovieLensRankingModel(tf.keras.Model):
         self.user_vocab = user_vocab
         self.movie_vocab = movie_vocab
         self.user_embedding = tf.keras.layers.Embedding(
-            user_vocab.vocabulary_size(), 128)
+            user_vocab.vocabulary_size(), 64)
         self.movie_embedding = tf.keras.layers.Embedding(
             movie_vocab.vocabulary_size(), 64)
 
@@ -72,7 +71,7 @@ model.fit(dataset_train, epochs=2)
 for movie_titles in dataset_movies.batch(2000):
     break
 
-user = "42"
+user = "13"
 
 inputs = {
     "user_id": tf.expand_dims(tf.repeat(user, repeats=movie_titles.shape[0]), axis=0),
